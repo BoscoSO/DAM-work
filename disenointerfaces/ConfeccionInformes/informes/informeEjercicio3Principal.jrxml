@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5ba72da8-d7a7-43fa-8e87-1be6a583eb97">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="idFactura" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\Propietario\\Documents\\NetBeansProjects\\ConfeccionInformes\\informes\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT o.CUSTOMERID as idCliente, o.ORDERID, d.UNITPRICE, d.QUANTITY, p.PRODUCTNAME, o.EMPLOYEEID FROM orders o, orderdetails d, products p where o.ORDERID = d.ORDERID and d.PRODUCTID = p.PRODUCTID and o.orderid = $P{idFactura}]]>
+	</queryString>
+	<field name="IDCLIENTE" class="java.lang.String"/>
+	<field name="ORDERID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="UNITPRICE" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="QUANTITY" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PRODUCTNAME" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="EMPLOYEEID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<subreport>
+				<reportElement x="162" y="18" width="393" height="38" uuid="7cabc09c-2ea3-4a8a-8148-37c56fb4fcb8"/>
+				<subreportParameter name="idEmp">
+					<subreportParameterExpression><![CDATA[$F{EMPLOYEEID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "informeEjercicio3Principal_subreport.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="11" y="18" width="134" height="20" uuid="cfb540f1-2a0d-4243-a166-c87e0f327fdd"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Datos del Empleado: ]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement x="11" y="0" width="201" height="31" uuid="ff8e8fdc-e720-41fe-8aff-2b4b6aa06688"/>
+				<textElement>
+					<font size="12" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Factura con id: "+$F{ORDERID}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="64" splitType="Stretch">
+			<staticText>
+				<reportElement x="26" y="21" width="100" height="20" uuid="7ad9b244-5a1e-4284-948a-1c168b038dd7"/>
+				<text><![CDATA[PRODUCTNAME]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="258" y="21" width="100" height="20" uuid="75eb9143-47d1-4547-bfb7-2c4d4e9323d1"/>
+				<text><![CDATA[UNITPRICE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="145" y="21" width="100" height="20" uuid="f0de1c7c-410c-478c-8f2b-174e191ec869"/>
+				<text><![CDATA[QUANTITY]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="32" splitType="Stretch">
+			<textField>
+				<reportElement x="26" y="0" width="100" height="20" uuid="0aa4b5ba-19b8-48af-bf0a-dd9432d139c8"/>
+				<textFieldExpression><![CDATA[$F{PRODUCTNAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="258" y="0" width="100" height="20" uuid="06672444-f27a-4d66-a2c9-8d04d36b0036"/>
+				<textFieldExpression><![CDATA[$F{UNITPRICE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="145" y="0" width="100" height="20" uuid="98932266-9b54-4133-9282-924cab9c4690"/>
+				<textFieldExpression><![CDATA[$F{QUANTITY}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Wed Dec 02 09:09:01 CET 2020:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0176-227f-5e68-00000f0b8910 
+on database directory /home/SANCLEMENTE/a19boscoso/NetBeansProjects/studentsDB-v2/basedatos with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@5bc2b487 
+Loaded from file:/home/SANCLEMENTE/a19boscoso/GlassFish_Server/javadb/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=14.0.1+7
+user.dir=/home/SANCLEMENTE/a19boscoso/NetBeansProjects/studentsDB-v2
+os.name=Linux
+os.arch=amd64
+os.version=5.7.0-0.bpo.2-amd64
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

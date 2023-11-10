@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/15.0.1" fx:controller="ejercicio1.Ejercicios1Controller">
+   <children>
+      <Button fx:id="btnMsgLable" layoutX="245.0" layoutY="78.0" onAction="#btnMsgLbl" prefHeight="26.0" prefWidth="111.0" text="_Pulsame!">
+         <tooltip>
+            <Tooltip text="Este boton muestra un mensaje de bienvenida" />
+         </tooltip>
+      </Button>
+      <Label fx:id="lblMsg" alignment="CENTER" layoutX="176.0" layoutY="43.0" prefHeight="16.0" prefWidth="252.0" textAlignment="CENTER" />
+      <Button layoutX="279.0" layoutY="306.0" onAction="#btnSalir" text="_Salir" textFill="#d70d0d">
+         <tooltip>
+            <Tooltip text="Sale de la aplicación" />
+         </tooltip>
+      </Button>
+   </children>
+</AnchorPane>

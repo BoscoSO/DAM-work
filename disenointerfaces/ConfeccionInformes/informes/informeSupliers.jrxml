@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f063c5fb-9bfb-41b9-b241-c0f7f47aa856">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="336"/>
+	<queryString>
+		<![CDATA[SELECT * FROM suppliers  order by country]]>
+	</queryString>
+	<field name="SUPPLIERID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="COMPANYNAME" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CONTACTNAME" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CONTACTTITLE" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ADDRESS" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CITY" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="REGION" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="POSTALCODE" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="COUNTRY" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PHONE" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="FAX" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="HOMEPAGE" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="COUNTRY_1" class="java.lang.Integer" resetType="Group" resetGroup="Grupo_Pais" calculation="Count">
+		<variableExpression><![CDATA[$F{COUNTRY}]]></variableExpression>
+	</variable>
+	<variable name="mediaSuministradores" class="java.lang.Number" incrementType="Group" incrementGroup="Grupo_Pais" calculation="Average">
+		<variableExpression><![CDATA[$V{COUNTRY_1}]]></variableExpression>
+	</variable>
+	<variable name="suministradores" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{SUPPLIERID}]]></variableExpression>
+	</variable>
+	<group name="Grupo_Pais">
+		<groupExpression><![CDATA[$F{COUNTRY}]]></groupExpression>
+		<groupHeader>
+			<band height="70">
+				<staticText>
+					<reportElement x="13" y="30" width="100" height="20" uuid="690b7dc3-ba83-4c1b-8af6-f88adea991de"/>
+					<textElement>
+						<font size="11" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Nome Empresa]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="131" y="30" width="100" height="20" uuid="34adb01d-4b8f-4fd4-9f72-34a634c900a4"/>
+					<textElement>
+						<font size="11" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Nome Contacto]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="252" y="30" width="100" height="20" uuid="e932fbc8-71eb-4cf4-ae6d-ffc30ac5aaea"/>
+					<textElement>
+						<font size="11" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Ciudad]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="369" y="30" width="100" height="20" uuid="01a7aa1c-d059-4896-8306-2eb63fee6882"/>
+					<textElement>
+						<font size="11" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Pais]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="124">
+				<textField>
+					<reportElement x="287" y="16" width="223" height="20" uuid="a6b6e04b-5170-4976-80c1-23b8883a9a79"/>
+					<textFieldExpression><![CDATA["Número de clientes: "+$V{COUNTRY_1}]]></textFieldExpression>
+				</textField>
+				<break>
+					<reportElement x="0" y="56" width="555" height="1" uuid="214732dc-1efa-4185-85ce-f680f0607117"/>
+				</break>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="179" y="25" width="190" height="20" uuid="939c0e4f-e910-4575-8ccc-13aea6c3a922"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Informe proveedores]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="436" y="10" width="162" height="20" uuid="d056dd54-9842-4570-a562-3bcc80078c19"/>
+				<text><![CDATA[Bosco Suárez-LLanos]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="44" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="47" splitType="Stretch">
+			<textField>
+				<reportElement x="13" y="13" width="100" height="20" uuid="fb21f960-274a-4902-9d14-0e724f5be43a"/>
+				<textFieldExpression><![CDATA[$F{COMPANYNAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="131" y="13" width="100" height="20" uuid="7bb4a701-f282-40fb-8f9e-435a3f8553b3"/>
+				<textFieldExpression><![CDATA[$F{CONTACTNAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="252" y="13" width="100" height="20" uuid="e597078d-0a79-4833-916e-f743a3566e90"/>
+				<textFieldExpression><![CDATA[$F{CITY}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="369" y="13" width="100" height="20" uuid="d641ab20-2de3-4eb7-9e6a-dc85a77ee5f2"/>
+				<textFieldExpression><![CDATA[$F{COUNTRY}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="769">
+			<barChart>
+				<chart>
+					<reportElement x="0" y="158" width="555" height="355" uuid="364acb8e-907d-4d69-b7b0-ed1019183a4b"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA["Suministradores por pais"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{COUNTRY}]]></categoryExpression>
+						<valueExpression><![CDATA[$V{COUNTRY_1}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<barPlot>
+					<plot labelRotation="-45.0"/>
+					<itemLabel/>
+					<categoryAxisFormat labelRotation="-45.0">
+						<axisFormat/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat/>
+					</valueAxisFormat>
+				</barPlot>
+			</barChart>
+			<textField>
+				<reportElement x="57" y="91" width="412" height="22" uuid="ba66d85b-f788-41c5-95af-ac551aec76af"/>
+				<textElement>
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Media suministradores por pais "+$V{mediaSuministradores}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="57" y="54" width="412" height="20" uuid="a2ffa99a-e775-4ce5-a506-7268ca7bf1f5"/>
+				<textElement>
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Total Suministradores "+$V{suministradores}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

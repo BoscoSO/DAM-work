@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0636f506-3653-49e0-8b91-e08174dd8604">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="numexistencias" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[select * from products where unitsinstock <= $P{numexistencias}]]>
+	</queryString>
+	<field name="PRODUCTID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PRODUCTNAME" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="SUPPLIERID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CATEGORYID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="QUANTITYPERUNIT" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="UNITPRICE" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="UNITSINSTOCK" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="UNITSONORDER" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="REORDERLEVEL" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="DISCONSTINUED" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<sortField name="UNITSINSTOCK"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<textField>
+				<reportElement x="88" y="13" width="374" height="38" uuid="8fce79ea-5a50-4ffc-b0b3-3c43f016adb6"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Informe Productos  con un maximo de "+$P{numexistencias}.toString()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="60" splitType="Stretch">
+			<staticText>
+				<reportElement x="12" y="13" width="76" height="20" uuid="0946d6fb-241a-455d-be36-c9480d1d487b"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="272" y="13" width="100" height="20" uuid="1b756d11-254d-43e9-8ef4-4bca61527830"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Precio Unidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="136" y="13" width="136" height="20" uuid="98e12b80-fbe0-492d-9eca-0c14faed1fb8"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cantidad por Unidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="386" y="13" width="155" height="20" uuid="087b60a6-6cdb-4488-b197-d67e1c000659"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Unidades disponibles]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="101" y="13" width="31" height="20" uuid="b36a03be-5455-4339-97fe-401ced64f154"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Id]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="43" splitType="Stretch">
+			<textField>
+				<reportElement x="12" y="17" width="76" height="20" uuid="2671b4d3-c560-4559-8375-a2b741f56beb"/>
+				<textFieldExpression><![CDATA[$F{PRODUCTNAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="272" y="17" width="100" height="20" uuid="2273ba4f-dfc9-40c3-9053-c15a1592bdc4"/>
+				<textFieldExpression><![CDATA[$F{UNITPRICE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="158" y="17" width="89" height="20" uuid="5cee254e-7841-47d2-a503-ceac439fc92b"/>
+				<textFieldExpression><![CDATA[$F{QUANTITYPERUNIT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="386" y="17" width="100" height="20" uuid="9265ce41-edc5-46fb-a560-e86ee5c7e60f"/>
+				<textFieldExpression><![CDATA[$F{UNITSINSTOCK}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="101" y="17" width="45" height="20" uuid="db544104-40a6-4483-bb81-7f55e92be74d"/>
+				<textFieldExpression><![CDATA[$F{PRODUCTID}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" stylesheets="@estilo1.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ejercicioVentas2.EjercicioVentas2Controller">
+   <children>
+      <Button layoutX="159.0" layoutY="64.0" mnemonicParsing="false" onAction="#showAlert" prefHeight="26.0" prefWidth="267.0" text="ERROR_ALERT" />
+      <Button layoutX="159.0" layoutY="127.0" mnemonicParsing="false" onAction="#dialogoConfirm" prefHeight="25.0" prefWidth="267.0" text="PREGUNTA" />
+      <TextArea fx:id="areaTxt" layoutX="106.0" layoutY="152.0" prefHeight="102.0" prefWidth="384.0" />
+      <Button layoutX="159.0" layoutY="269.0" mnemonicParsing="false" onAction="#dialogEscoge" prefHeight="25.0" prefWidth="130.0" text="ESCOGE" />
+      <Label fx:id="lblEscoge" alignment="CENTER" contentDisplay="CENTER" layoutY="306.0" prefHeight="36.0" prefWidth="600.0" />
+      <Button layoutX="289.0" layoutY="269.0" mnemonicParsing="false" onAction="#dialogResponde" prefHeight="25.0" prefWidth="130.0" text="RESPONDE" />
+      <Button layoutX="156.0" layoutY="350.0" mnemonicParsing="false" onAction="#login" prefHeight="36.0" prefWidth="267.0" text="Login" />
+   </children>
+</AnchorPane>

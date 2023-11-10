@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.CheckMenuItem?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.CustomMenuItem?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+
+<AnchorPane id="AnchorPane" prefHeight="518.0" prefWidth="687.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ejercicio9y.Ejercicios9yController">
+   <children>
+      <DatePicker fx:id="dataPicker" editable="false" layoutX="75.0" layoutY="100.0" prefHeight="42.0" prefWidth="263.0" />
+      <Label fx:id="lbl" alignment="CENTER" layoutX="81.0" layoutY="186.0" prefHeight="42.0" prefWidth="263.0" />
+      <MenuBar maxWidth="1.7976931348623157E308" prefHeight="29.0" prefWidth="687.0">
+        <menus>
+          <Menu text="_Radios">
+            <items>
+                  <RadioMenuItem mnemonicParsing="false" onAction="#pulsado" text="Eligeme a mi ">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="intocables" />
+                     </toggleGroup>
+                  </RadioMenuItem>
+                  <RadioMenuItem mnemonicParsing="false" onAction="#pulsado" text="A mi a mi" toggleGroup="$intocables" />
+                  <RadioMenuItem mnemonicParsing="false" onAction="#pulsado" text="No yo yo" toggleGroup="$intocables" />
+            </items>
+          </Menu>
+          <Menu text="_SubMenus">
+               <items>
+                  <Menu mnemonicParsing="false" text="sub1">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#pulsado" text="Buenas" />
+                        <MenuItem mnemonicParsing="false" onAction="#pulsado" text="Tardes" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="sub2">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#pulsado" text="Hola" />
+                        <MenuItem mnemonicParsing="false" onAction="#pulsado" text="Adios" />
+                    </items>
+                  </Menu>
+                  <SeparatorMenuItem hideOnClick="true" mnemonicParsing="false" />
+                  <CheckMenuItem mnemonicParsing="false" onAction="#pulsado" text="Checkeame" />
+               </items>
+          </Menu>
+          <Menu text="_Custom">
+            <items>
+                  <CustomMenuItem mnemonicParsing="false" text="Unspecified Action">
+                    <content>
+                      <CheckBox onAction="#pulsado" text="Click Me" />
+                    </content>
+                  </CustomMenuItem>
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <ColorPicker fx:id="colorPicker" layoutX="122.0" layoutY="339.0" onAction="#colorea" prefHeight="72.0" prefWidth="137.0">
+         <value>
+            <Color red="0.4470588266849518" green="1.0" blue="0.27843138575553894" />
+         </value>
+      </ColorPicker>
+      <Label fx:id="labelColor" ellipsisString="" layoutX="362.0" layoutY="312.0" prefHeight="125.0" prefWidth="137.0" />
+   </children>
+</AnchorPane>

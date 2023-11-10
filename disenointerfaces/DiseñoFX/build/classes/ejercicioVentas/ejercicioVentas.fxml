@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ejercicioVentas.EjercicioVentasController">
+   <children>
+      <Button layoutX="121.0" layoutY="123.0" mnemonicParsing="false" onAction="#modalNone" text="M_NONE" />
+      <Button layoutX="256.0" layoutY="123.0" mnemonicParsing="false" onAction="#modalWindow" text="M_WINDOW" />
+      <Button layoutX="404.0" layoutY="123.0" mnemonicParsing="false" onAction="#modalApp" prefHeight="0.0" prefWidth="62.0" text="M_APP" />
+      <TextField layoutX="121.0" layoutY="39.0" prefHeight="26.0" prefWidth="363.0" />
+      <Button layoutX="122.0" layoutY="277.0" mnemonicParsing="false" onAction="#alert_info" text="Alert_Inf" />
+      <Button layoutX="244.0" layoutY="277.0" mnemonicParsing="false" onAction="#alert_warning" prefHeight="26.0" prefWidth="121.0" text="Alert_Warning" />
+      <Button layoutX="390.0" layoutY="277.0" mnemonicParsing="false" onAction="#alert_error" prefHeight="26.0" prefWidth="90.0" text="Alert_Error" />
+   </children>
+</AnchorPane>

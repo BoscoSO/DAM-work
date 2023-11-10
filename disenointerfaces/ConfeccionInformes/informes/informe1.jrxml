@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="44d5d2fa-cdc8-47ee-93f7-a8be70535e31">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="53"/>
+	<queryString>
+		<![CDATA[SELECT * FROM customers order by city]]>
+	</queryString>
+	<field name="CUSTOMERID" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="COMPANYNAME" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CONTACTNAME" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CONTACTTITLE" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ADDRESS" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CITY" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="REGION" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="POSTALCODE" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="COUNTRY" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PHONE" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="FAX" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="CITY_2" class="java.lang.Integer" resetType="Group" resetGroup="grupoCidade" calculation="Count">
+		<variableExpression><![CDATA[$F{CITY}]]></variableExpression>
+	</variable>
+	<variable name="CUSTOMERID_1" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{CUSTOMERID}]]></variableExpression>
+	</variable>
+	<variable name="mediaCidades" class="java.lang.Number" incrementType="Group" incrementGroup="grupoCidade" calculation="Average">
+		<variableExpression><![CDATA[$V{CITY_2}]]></variableExpression>
+	</variable>
+	<group name="grupoCidade">
+		<groupExpression><![CDATA[$F{CITY}]]></groupExpression>
+		<groupHeader>
+			<band height="101">
+				<staticText>
+					<reportElement x="21" y="61" width="100" height="20" uuid="78b9a5f4-93e9-49fe-8eb3-9eaceacd77e0"/>
+					<textElement>
+						<font size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[CONTACTNAME]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="131" y="61" width="100" height="20" uuid="d623fbaa-1c51-48e6-aba8-8def10c1824e"/>
+					<textElement>
+						<font size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[CITY]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="21" y="11" width="290" height="28" uuid="8fd2265b-e896-4b15-8a02-527f204c5e87"/>
+					<textElement>
+						<font size="16" isBold="true" isUnderline="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Clientes de "+$F{CITY}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="50">
+				<textField>
+					<reportElement x="186" y="11" width="198" height="20" uuid="96faac83-6136-4014-ae00-c72d0138f85f"/>
+					<textFieldExpression><![CDATA["Total clientes "+$V{CITY_2}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="132" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="342" y="0" width="213" height="20" uuid="327c5db7-331b-477b-a231-5763e4a80b8f"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="15" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="27" splitType="Stretch">
+			<textField>
+				<reportElement x="131" y="0" width="100" height="20" uuid="2c7cdc5e-ce17-4eae-9bfe-c17f73926be2"/>
+				<textFieldExpression><![CDATA[$F{CITY}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="21" y="0" width="100" height="20" uuid="65c66895-680f-43d5-823c-a0094606268e"/>
+				<textFieldExpression><![CDATA[$F{CONTACTNAME}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="50">
+			<textField>
+				<reportElement x="43" y="13" width="178" height="20" uuid="8d58eac9-d675-4032-bcfa-9059a845fc1e"/>
+				<textFieldExpression><![CDATA["Total Clientes "+$V{CUSTOMERID_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="221" y="13" width="324" height="20" uuid="622b3144-a569-4454-8f19-7ca0d98c8147"/>
+				<textFieldExpression><![CDATA["Media ciudades: "+$V{mediaCidades}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>
